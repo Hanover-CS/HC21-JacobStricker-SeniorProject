@@ -21,19 +21,14 @@ public class PlayerShip : MonoBehaviour
     public Transform laserEmitter;
     public float laserThrust;
 
-    //variables for the alternate screen wrapping implementation
-/*
-    Renderer[] renderers;
-    bool isWrappingX = false;
-    bool isWrappingY = false;
-*/
+    //Variables for detecting hit
+    public float deathForce;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        //renderer for alt - screen wrapping implementation
-        //renderers = GetComponentsInChildren<Renderer>();
+
     }
 
     // Update is called once per frame
@@ -47,24 +42,27 @@ public class PlayerShip : MonoBehaviour
        }
        rotationInput = Input.GetAxis("Horizontal");
 
+       //Rotate ship
+       transform.Rotate(Vector3.forward * rotationInput * Time.deltaTime * -rotation);
+
        //screen wrapping
         Vector2 newPos = transform.position;
-        if(transform.position.y > screenTop)
+        if (transform.position.y > screenTop)
         {
             newPos.y = screenBottom;
         }
 
-        if(transform.position.y < screenBottom)
+        if (transform.position.y < screenBottom)
         {
             newPos.y = screenTop;
         }
 
-        if(transform.position.x > screenRight)
+        if (transform.position.x > screenRight)
         {
             newPos.x = screenLeft;
         }
 
-        if(transform.position.x < screenLeft)
+        if (transform.position.x < screenLeft)
         {
             newPos.x = screenRight;
         }
@@ -83,55 +81,14 @@ public class PlayerShip : MonoBehaviour
     void FixedUpdate()
     {
         rb.AddRelativeForce (Vector2.up * forwardInput * forward);
-        rb.AddTorque (-rotationInput * rotation);
     }
 
-//Working on implementing a new form of screen wrapping
-//that will allow for different sized screens
-/*
-    bool CheckRenderers()
+    void OnCollisionEnter2D(Collision2D col)
     {
-        foreach(var renderer in renderers)
+        //Checks if a hit is lethal
+        if (col.relativeVelocity.magnitude > deathForce)
         {
-            if(renderer.isVisible)
-            {
-                return true;
-            }
+            //STUB
         }
-        return false;
     }
-
-    void ScreenWrap()
-    {
-        var isVisible = CheckRenderers();
-        if (isVisible)
-        {
-            isWrappingX = false;
-            isWrappingY = false;
-            return;
-        }
-
-        if(isWrappingX && isWrappingY)
-        {
-            return;
-        }
-
-        var cam = Camera.main;
-        var viewportPosition = cam.WorldToViewPoint(transform.posiiton);
-        var newPosition = transform.position;
-
-        if (!isWrappingY && (viewportPosition.y > 1 || viewportPosition.y < 0))
-        {
-            newPosition.x = -newPosition.x;
-            isWrappingY = true;
-        }
-
-        if (!isWrapping && (viewportPosition.y > 1 || viewportPosition.y < 0))
-        {
-            newPosition.y = -newPosition.y;
-            isWrappingY = true;
-        }
-        transform.position = newPosition;
-    }
-    */
 }

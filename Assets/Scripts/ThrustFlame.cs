@@ -15,11 +15,11 @@ public class ThrustFlame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.W) || Input.GetButtonDown("joy1"))
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetButtonDown("joy1"))
         {
         ps.Play();
         }
-        if(Input.GetKeyUp(KeyCode.W) || Input.GetButtonUp("joy1"))
+        if (Input.GetKeyUp(KeyCode.W) || Input.GetButtonUp("joy1"))
         {
         ps.Stop();
         }   
