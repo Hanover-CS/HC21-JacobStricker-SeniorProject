@@ -36,7 +36,7 @@ public class PlayerShip : MonoBehaviour
     {
         //forward and rotational movement
        forwardInput = 0;
-       if (Input.GetKey(KeyCode.W) || Input.GetButton("joy1"))
+       if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetButton("joy1"))
        {
            forwardInput = 1;
        }

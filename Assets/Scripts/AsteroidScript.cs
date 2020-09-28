@@ -16,9 +16,15 @@ public class AsteroidScript : MonoBehaviour
     public float screenRight;
 
     //variabels for asteroid destruction
-    public int asteroidState;  // 3 = Large   2 = Medium  1 = Small
+    public int asteroidState;  // 3 = Large   2 = Medium  1 = Small     4 = small asteroid that spawns large   5 = medium asteroid that spawns a small and a respawning small
+    public GameObject asteroidLarge;
     public GameObject asteroidMedium;
+    public GameObject asteroidMediumRes;
     public GameObject asteroidSmall;
+    public GameObject asteroidSmallRes;
+    //somewhat random asteroid spawns
+    public int xSpawn;
+    public int ySpawn;
 
     // Start is called before the first frame update
     void Start()
@@ -69,13 +75,17 @@ public class AsteroidScript : MonoBehaviour
             if (asteroidState == 3)
             {
                 //spawn 2 medium asteroids
-                Instantiate(asteroidMedium, transform.position + new Vector3(2, 2, 0), transform.rotation);
-                Instantiate(asteroidMedium, transform.position + new Vector3(-2, -2, 0), transform.rotation);
+                Instantiate(asteroidMedium, transform.position + new Vector3(1, 1, 0), transform.rotation);
+                Instantiate(asteroidMediumRes, transform.position + new Vector3(-1, -1, 0), transform.rotation);
             }
-            else if (asteroidState == 2)
+            else if (asteroidState == 2 || asteroidState == 5)
             {
                 Instantiate(asteroidSmall, transform.position + new Vector3(1, 1, 0), transform.rotation);
-                Instantiate(asteroidSmall, transform.position + new Vector3(-1, -1, 0), transform.rotation);
+                Instantiate(asteroidSmallRes, transform.position + new Vector3(-1, -1, 0), transform.rotation);
+            }
+            else if (asteroidState == 4)
+            {
+                Instantiate(asteroidLarge, new Vector3(xSpawn, ySpawn, 0), transform.rotation);
             }
             //despawn laser and asteroid
             Destroy(other.gameObject);
