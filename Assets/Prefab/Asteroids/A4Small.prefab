@@ -133,6 +133,8 @@ MonoBehaviour:
   asteroidSmallRes: {fileID: 6372441951544134511}
   xSpawn: 0
   ySpawn: 0
+  player: {fileID: 0}
+  scoreValue: 150
 --- !u!58 &2066598652119648985
 CircleCollider2D:
   m_ObjectHideFlags: 0

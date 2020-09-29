@@ -26,6 +26,10 @@ public class AsteroidScript : MonoBehaviour
     public int xSpawn;
     public int ySpawn;
 
+    //Scoring
+    public GameObject player;
+    public int scoreValue;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +40,9 @@ public class AsteroidScript : MonoBehaviour
         //apply forces to asteroid
         rb.AddForce(thrust);
         rb.AddTorque(torque);
+
+        //set playerShip
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
@@ -69,6 +76,7 @@ public class AsteroidScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         //checks if collision is with laser
+        //handle scoring
         if (other.CompareTag("laser"))
         {
             //adjust asteroid state
@@ -87,7 +95,12 @@ public class AsteroidScript : MonoBehaviour
             {
                 Instantiate(asteroidLarge, new Vector3(xSpawn, ySpawn, 0), transform.rotation);
             }
-            //despawn laser and asteroid
+            else if (asteroidState == 1)
+            {
+                
+            }
+            //despawn laser and asteroid and add players points
+            player.SendMessage("ScorePoints", scoreValue);
             Destroy(other.gameObject);
             Destroy(gameObject);
         }

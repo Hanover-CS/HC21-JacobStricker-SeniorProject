@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerShip : MonoBehaviour
 {
@@ -23,12 +24,16 @@ public class PlayerShip : MonoBehaviour
 
     //Variables for detecting hit
     public float deathForce;
+    //scoring UI
+    private int score;
+    public Text scoreText;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        score = 0;
+        scoreText.text = "" + score;
     }
 
     // Update is called once per frame
@@ -90,5 +95,11 @@ public class PlayerShip : MonoBehaviour
         {
             //STUB
         }
+    }
+
+    void ScorePoints(int addScore)
+    {
+        score += addScore;
+        scoreText.text = "" + score;
     }
 }

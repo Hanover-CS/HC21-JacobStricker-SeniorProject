@@ -128,11 +128,13 @@ MonoBehaviour:
   asteroidState: 3
   asteroidLarge: {fileID: 3214963360096540573}
   asteroidMedium: {fileID: 324086645254957967, guid: 3ced0438d32f10247b279b145bda31a5, type: 3}
-  asteroidMediumRes: {fileID: 7121820749779658898, guid: 60f16057df39bb24cbc6dce245af019e, type: 3}
+  asteroidMediumRes: {fileID: 3921897663125844077, guid: 75ead108eba70214f97947df7c2c35f6, type: 3}
   asteroidSmall: {fileID: 640287214895954328, guid: bfcccb34b24de2a4290596af34bcf964, type: 3}
   asteroidSmallRes: {fileID: 2598441034930748402, guid: 5deed42623fd9724da5aecc2eb11967c, type: 3}
   xSpawn: 0
   ySpawn: 0
+  player: {fileID: 0}
+  scoreValue: 50
 --- !u!58 &9131370655555449151
 CircleCollider2D:
   m_ObjectHideFlags: 0
