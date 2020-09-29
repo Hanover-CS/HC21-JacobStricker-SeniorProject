@@ -26,14 +26,14 @@ public class PlayerShip : MonoBehaviour
     public float deathForce;
     //scoring UI
     private int score;
-    public Text scoreText;
+    public TextMesh scoreText;
 
 
     // Start is called before the first frame update
     void Start()
     {
         score = 0;
-        scoreText.text = "" + score;
+        scoreText.text = "SCORE: " + score;
     }
 
     // Update is called once per frame
@@ -100,6 +100,6 @@ public class PlayerShip : MonoBehaviour
     void ScorePoints(int addScore)
     {
         score += addScore;
-        scoreText.text = "" + score;
+        scoreText.text = "SCORE: " + score;
     }
 }
