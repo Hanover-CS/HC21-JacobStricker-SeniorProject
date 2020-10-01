@@ -931,7 +931,7 @@ GameObject:
   - component: {fileID: 620839849}
   - component: {fileID: 620839848}
   - component: {fileID: 620839847}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: GameOverUI
   m_TagString: GameOverUI
   m_Icon: {fileID: 0}
@@ -1011,7 +1011,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!224 &620839851
 RectTransform:
@@ -1140,7 +1140,7 @@ GameObject:
   - component: {fileID: 849793763}
   - component: {fileID: 849793762}
   - component: {fileID: 849793761}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: QuitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1271,7 +1271,7 @@ GameObject:
   - component: {fileID: 998069898}
   - component: {fileID: 998069900}
   - component: {fileID: 998069899}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: GameOverText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1410,7 +1410,7 @@ GameObject:
   - component: {fileID: 1126886083}
   - component: {fileID: 1126886082}
   - component: {fileID: 1126886081}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: PlayAgainButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1542,7 +1542,7 @@ GameObject:
   - component: {fileID: 1140882259}
   - component: {fileID: 1140882258}
   - component: {fileID: 1140882257}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1736,7 +1736,7 @@ GameObject:
   - component: {fileID: 1323624347}
   - component: {fileID: 1323624346}
   - component: {fileID: 1323624345}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: MenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1920,6 +1920,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1965938317691773390, guid: 346731bba72e11d4dbdb3013c11bccb6, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965938317698329496, guid: 346731bba72e11d4dbdb3013c11bccb6, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965938318046923076, guid: 346731bba72e11d4dbdb3013c11bccb6, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1965938318046923077, guid: 346731bba72e11d4dbdb3013c11bccb6, type: 3}
       propertyPath: scoreText
       value: 
@@ -1971,6 +1983,10 @@ PrefabInstance:
     - target: {fileID: 1965938318046923192, guid: 346731bba72e11d4dbdb3013c11bccb6, type: 3}
       propertyPath: m_Name
       value: PlayerShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965938318046923192, guid: 346731bba72e11d4dbdb3013c11bccb6, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 346731bba72e11d4dbdb3013c11bccb6, type: 3}
@@ -2117,7 +2133,7 @@ GameObject:
   - component: {fileID: 1581102958}
   - component: {fileID: 1581102960}
   - component: {fileID: 1581102959}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: GameOver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2197,7 +2213,7 @@ GameObject:
   - component: {fileID: 1730621904}
   - component: {fileID: 1730621903}
   - component: {fileID: 1730621902}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2453,7 +2469,7 @@ GameObject:
   - component: {fileID: 2055238962}
   - component: {fileID: 2055238961}
   - component: {fileID: 2055238960}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2549,7 +2565,7 @@ GameObject:
   - component: {fileID: 2059747361}
   - component: {fileID: 2059747360}
   - component: {fileID: 2059747364}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: PauseUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2614,7 +2630,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!224 &2059747363
 RectTransform:
