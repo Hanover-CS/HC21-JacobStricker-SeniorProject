@@ -97,7 +97,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68f7ca854551bcb4a9329ff848b226c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxThrust: 100
+  maxThrust: 200
   maxTorque: 100
   rb: {fileID: 5815294025298831450}
   screenTop: 11.5

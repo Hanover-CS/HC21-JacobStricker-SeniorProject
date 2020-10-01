@@ -22,18 +22,27 @@ public class PlayerShip : MonoBehaviour
     public Transform laserEmitter;
     public float laserThrust;
 
-    //Variables for detecting hit
-    public float deathForce;
     //scoring UI
     private int score;
     public TextMesh scoreText;
+
+    //handles players death
+    public bool isDead = true;
+    public GameObject GameOverUI;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        //hides mouse cursor
+        Cursor.visible = false;
+
+        //Sets starting score
         score = 0;
         scoreText.text = "SCORE: " + score;
+
+        //get GameOverUI
+        GameOverUI = GameObject.FindWithTag("GameOverUI");
     }
 
     // Update is called once per frame
@@ -88,13 +97,12 @@ public class PlayerShip : MonoBehaviour
         rb.AddRelativeForce (Vector2.up * forwardInput * forward);
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    //Handles players death
+    void OnCollisionEnter2D()
     {
-        //Checks if a hit is lethal
-        if (col.relativeVelocity.magnitude > deathForce)
-        {
-            //STUB
-        }
+        GameOverUI.SendMessage("setFinalScore", score);
+        GameOverUI.SendMessage( "playerDeathWatch", isDead);
+        Destroy(gameObject);
     }
 
     void ScorePoints(int addScore)
