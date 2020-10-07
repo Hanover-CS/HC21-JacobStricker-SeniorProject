@@ -21,6 +21,7 @@ public class PlayerShip : MonoBehaviour
     public GameObject laser;
     public Transform laserEmitter;
     public float laserThrust;
+    public AudioSource sound;
 
     //scoring UI
     private int score;
@@ -34,8 +35,9 @@ public class PlayerShip : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //hides mouse cursor
+        //hides mouse cursor and set appropriate game speed
         Cursor.visible = false;
+        Time.timeScale = 1f;
 
         //Sets starting score
         score = 0;
@@ -88,6 +90,7 @@ public class PlayerShip : MonoBehaviour
         {
             GameObject newLaser = Instantiate(laser, laserEmitter.position, laserEmitter.rotation);
             newLaser.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.up * laserThrust);
+            sound.Play();
             Destroy (newLaser, 4.0f);
         }
     }
