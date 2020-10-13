@@ -6,6 +6,7 @@ TagManager:
   tags:
   - laser
   - GameOverUI
+  - breakSound
   layers:
   - Default
   - TransparentFX

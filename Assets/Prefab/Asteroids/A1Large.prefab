@@ -135,6 +135,7 @@ MonoBehaviour:
   ySpawn: 0
   player: {fileID: 0}
   scoreValue: 50
+  asteroidBreaking: {fileID: 0}
 --- !u!58 &9131370655555449151
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ public class PlayerShip : MonoBehaviour
     public GameObject laser;
     public Transform laserEmitter;
     public float laserThrust;
-    public AudioSource sound;
+    public AudioSource laserSound;
 
     //scoring UI
     private int score;
@@ -90,7 +90,7 @@ public class PlayerShip : MonoBehaviour
         {
             GameObject newLaser = Instantiate(laser, laserEmitter.position, laserEmitter.rotation);
             newLaser.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.up * laserThrust);
-            sound.Play();
+            laserSound.Play();
             Destroy (newLaser, 4.0f);
         }
     }

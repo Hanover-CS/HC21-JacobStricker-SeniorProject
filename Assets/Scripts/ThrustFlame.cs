@@ -5,6 +5,7 @@ using UnityEngine;
 public class ThrustFlame : MonoBehaviour
 {
     public ParticleSystem ps;
+    public AudioSource rocketSound;
 
     // Start is called before the first frame update
     void Start()
@@ -18,10 +19,12 @@ public class ThrustFlame : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetButtonDown("joy1"))
         {
         ps.Play();
+        rocketSound.Play();
         }
         if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow) || Input.GetButtonUp("joy1"))
         {
         ps.Stop();
+        rocketSound.Stop();
         }   
     }
 }

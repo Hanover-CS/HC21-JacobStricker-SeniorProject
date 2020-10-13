@@ -30,6 +30,9 @@ public class AsteroidScript : MonoBehaviour
     public GameObject player;
     public int scoreValue;
 
+    //Sound
+    public GameObject asteroidBreakingSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +46,7 @@ public class AsteroidScript : MonoBehaviour
 
         //set playerShip
         player = GameObject.FindWithTag("Player");
+        asteroidBreakingSound = GameObject.FindWithTag("breakSound");
     }
 
     // Update is called once per frame
@@ -95,11 +99,8 @@ public class AsteroidScript : MonoBehaviour
             {
                 Instantiate(asteroidLarge, new Vector3(xSpawn, ySpawn, 0), transform.rotation);
             }
-            else if (asteroidState == 1)
-            {
-                
-            }
             //despawn laser and asteroid and add players points
+            asteroidBreakingSound.SendMessage("playSound");
             player.SendMessage("ScorePoints", scoreValue);
             Destroy(other.gameObject);
             Destroy(gameObject);
