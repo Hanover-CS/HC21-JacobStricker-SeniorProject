@@ -31,7 +31,7 @@ public class AsteroidScript : MonoBehaviour
     public int scoreValue;
 
     //Sound
-    public GameObject asteroidBreakingSound;
+    public GameObject soundManager;
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +46,7 @@ public class AsteroidScript : MonoBehaviour
 
         //set playerShip
         player = GameObject.FindWithTag("Player");
-        asteroidBreakingSound = GameObject.FindWithTag("breakSound");
+        soundManager = GameObject.FindWithTag("soundManager");
     }
 
     // Update is called once per frame
@@ -92,15 +92,17 @@ public class AsteroidScript : MonoBehaviour
             }
             else if (asteroidState == 2 || asteroidState == 5)
             {
+                //spawn 2 small asteroids
                 Instantiate(asteroidSmall, transform.position + new Vector3(1, 1, 0), transform.rotation);
                 Instantiate(asteroidSmallRes, transform.position + new Vector3(-1, -1, 0), transform.rotation);
             }
             else if (asteroidState == 4)
             {
+                //spawns a new large asteroid
                 Instantiate(asteroidLarge, new Vector3(xSpawn, ySpawn, 0), transform.rotation);
             }
             //despawn laser and asteroid and add players points
-            asteroidBreakingSound.SendMessage("playSound");
+            soundManager.SendMessage("playAsteroidBreak");
             player.SendMessage("ScorePoints", scoreValue);
             Destroy(other.gameObject);
             Destroy(gameObject);

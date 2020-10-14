@@ -9,8 +9,7 @@ public class GameOver : MonoBehaviour
     public GameObject scoreUI;
     public Text finalScore;
 
-    // Update is called once per frame
-    public void playerDeathWatch(bool isDead)
+    void playerDeathWatch(bool isDead)
     {
         if(isDead)
         {
@@ -24,9 +23,14 @@ public class GameOver : MonoBehaviour
         }
     }
 
-    public void setFinalScore(int endScore)
+    void setFinalScore(int endScore)
     {
         finalScore.text = "SCORE: " + endScore;
+    }
+
+    public void leaderboard()
+    {
+        //STUB
     }
 
     public void playAgain()

@@ -33,7 +33,7 @@ public class PauseMenu : MonoBehaviour
         gamePaused = false;
     }
 
-    void Pause()
+    public void Pause()
     {
         Cursor.visible = true;
         pauseMenuUI.SetActive(true);

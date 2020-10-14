@@ -21,14 +21,13 @@ public class PlayerShip : MonoBehaviour
     public GameObject laser;
     public Transform laserEmitter;
     public float laserThrust;
-    public AudioSource laserSound;
+    public GameObject soundManager;
 
     //scoring UI
     private int score;
     public TextMesh scoreText;
 
-    //handles players death
-    public bool isDead = true;
+    //Game Over
     public GameObject GameOverUI;
 
 
@@ -43,8 +42,9 @@ public class PlayerShip : MonoBehaviour
         score = 0;
         scoreText.text = "SCORE: " + score;
 
-        //get GameOverUI
+        //get GameObjects
         GameOverUI = GameObject.FindWithTag("GameOverUI");
+        soundManager = GameObject.FindWithTag("soundManager");
     }
 
     // Update is called once per frame
@@ -90,7 +90,7 @@ public class PlayerShip : MonoBehaviour
         {
             GameObject newLaser = Instantiate(laser, laserEmitter.position, laserEmitter.rotation);
             newLaser.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.up * laserThrust);
-            laserSound.Play();
+            soundManager.SendMessage("playLaser");
             Destroy (newLaser, 4.0f);
         }
     }
@@ -104,7 +104,7 @@ public class PlayerShip : MonoBehaviour
     void OnCollisionEnter2D()
     {
         GameOverUI.SendMessage("setFinalScore", score);
-        GameOverUI.SendMessage( "playerDeathWatch", isDead);
+        GameOverUI.SendMessage( "playerDeathWatch", true);
         Destroy(gameObject);
     }
 
