@@ -25,7 +25,7 @@ public class PlayerShip : MonoBehaviour
 
     //scoring UI
     private int score;
-    public TextMesh scoreText;
+    public GameObject scoreUI;
 
     //Game Over
     public GameObject GameOverUI;
@@ -40,11 +40,12 @@ public class PlayerShip : MonoBehaviour
 
         //Sets starting score
         score = 0;
-        scoreText.text = "SCORE: " + score;
+        scoreUI.SendMessage("updateScore", score);
 
         //get GameObjects
         GameOverUI = GameObject.FindWithTag("GameOverUI");
         soundManager = GameObject.FindWithTag("soundManager");
+        scoreUI = GameObject.FindWithTag("scoreDisplay1");
     }
 
     // Update is called once per frame
@@ -111,6 +112,6 @@ public class PlayerShip : MonoBehaviour
     void ScorePoints(int addScore)
     {
         score += addScore;
-        scoreText.text = "SCORE: " + score;
+        scoreUI.SendMessage("updateScore", score);
     }
 }
