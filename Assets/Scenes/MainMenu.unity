@@ -665,7 +665,7 @@ GameObject:
   - component: {fileID: 630402195}
   m_Layer: 0
   m_Name: MenuMusic
-  m_TagString: Untagged
+  m_TagString: Music
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1503,7 +1503,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3.67, y: 0.22}
+  m_AnchoredPosition: {x: -2.64, y: 0.28}
   m_SizeDelta: {x: 469.40204, y: 140.30847}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1131599451
@@ -1539,7 +1539,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: VOLUME
+  m_Text: MUSIC VOLUME
 --- !u!222 &1131599452
 CanvasRenderer:
   m_ObjectHideFlags: 0

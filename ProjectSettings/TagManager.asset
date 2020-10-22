@@ -9,6 +9,7 @@ TagManager:
   - breakSound
   - soundManager
   - scoreDisplay1
+  - Music
   layers:
   - Default
   - TransparentFX

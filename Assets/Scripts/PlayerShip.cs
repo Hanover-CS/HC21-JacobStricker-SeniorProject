@@ -8,8 +8,8 @@ public class PlayerShip : MonoBehaviour
     public Rigidbody2D rb;
 
     //variables used for ship movement
-    public float forward;
-    public float rotation;
+    public float forwardThrust;
+    public float rotationForce;
     public float screenTop;
     public float screenBottom;
     public float screenLeft;
@@ -60,7 +60,7 @@ public class PlayerShip : MonoBehaviour
        rotationInput = Input.GetAxis("Horizontal");
 
        //Rotate ship
-       transform.Rotate(Vector3.forward * rotationInput * Time.deltaTime * -rotation);
+       transform.Rotate(Vector3.forward * rotationInput * Time.deltaTime * -rotationForce);
 
        //screen wrapping
         Vector2 newPos = transform.position;
@@ -98,7 +98,7 @@ public class PlayerShip : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.AddRelativeForce (Vector2.up * forwardInput * forward);
+        rb.AddRelativeForce (Vector2.up * forwardInput * forwardThrust);
     }
 
     //Handles players death

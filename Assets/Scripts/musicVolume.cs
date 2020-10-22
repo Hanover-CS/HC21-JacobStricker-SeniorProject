@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class musicVolume : MonoBehaviour
 {
+    private GameObject menuMusic;
     public AudioSource music;
 
     private float musicLevel = 0.5f;
+
+    //Awake is called upon object creation
+    void Awake()
+    {
+        //Prevents music from stopping when changing scenes
+        menuMusic = GameObject.FindWithTag("Music");
+        DontDestroyOnLoad(menuMusic);
+    }
 
     // Start is called before the first frame update
     void Start()

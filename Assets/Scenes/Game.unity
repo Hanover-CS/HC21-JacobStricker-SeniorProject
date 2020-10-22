@@ -2300,6 +2300,14 @@ PrefabInstance:
       propertyPath: scoreUI
       value: 
       objectReference: {fileID: 1229711573}
+    - target: {fileID: 1965938318046923077, guid: 346731bba72e11d4dbdb3013c11bccb6, type: 3}
+      propertyPath: forwardThrust
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965938318046923077, guid: 346731bba72e11d4dbdb3013c11bccb6, type: 3}
+      propertyPath: rotationForce
+      value: 145
+      objectReference: {fileID: 0}
     - target: {fileID: 1965938318046923079, guid: 346731bba72e11d4dbdb3013c11bccb6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.018355012
