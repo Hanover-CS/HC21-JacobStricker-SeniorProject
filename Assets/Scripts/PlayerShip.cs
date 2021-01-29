@@ -114,4 +114,15 @@ public class PlayerShip : MonoBehaviour
         score += addScore;
         scoreUI.SendMessage("updateScore", score);
     }
+
+    float getFowardThrust()
+    {
+        return forwardThrust;
+    }
+
+    //function used for testing
+    int getScore()
+    {
+        return score;
+    }
 }
