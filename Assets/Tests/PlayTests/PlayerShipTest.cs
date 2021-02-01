@@ -12,24 +12,35 @@ namespace Tests
         public IEnumerator testPlayerScoreAccumulation()
         {
             //set up
-            var gameObjectScoreUI = new GameObject();
-            var testScoreUI = gameObjectScoreUI.AddComponent<ScoreUI>();
+            GameObject gameObjectScoreUI = new GameObject();
+            var scoreUI = gameObjectScoreUI.AddComponent<scoreUIStub>();
+            gameObjectScoreUI.tag="scoreDisplay1";
 
-            //var gameObjectPlayer = new GameObject();
-            //var testPlayer = gameObjectPlayer.AddComponent<PlayerShip>();
+            GameObject gameObjectPlayer = new GameObject();
+            Rigidbody2D rb = gameObjectPlayer.AddComponent<Rigidbody2D>();
+            var testPlayer = gameObjectPlayer.AddComponent<PlayerShip>();
+            yield return null; //finishes set up before running scripts
 
-            //testPlayer.scoreUI = testScoreUI;
-            //Assert.AreEqual(0, testPlayer.getScore());
+            //Tests that PlayerShip start() initilizes score correctly
+            //Debug.Log("Player = " + testPlayer.getScore() + " score UI = " + scoreUI.currentScore);
+            Assert.AreEqual(scoreUI.currentScore, testPlayer.getScore());
 
-            //function callS
-            //testPlayer.ScorePoints(150);
-            //testPlayer.ScorePoints(100);
-            //testPLayer.ScorePoints(50);
-            //testPLayer.ScorePoints(50);
+            //function calls with Tests
+            testPlayer.ScorePoints(150);
+            Assert.AreEqual(scoreUI.currentScore, testPlayer.getScore());
+            //Debug.Log("Player = " + testPlayer.getScore() + "  scoreUI = " + scoreUI.currentScore);
 
-            //Assertion
-            //Assert.AreEqual(350, testPlayer.getScore());
-            yield return null;
+            testPlayer.ScorePoints(100);
+            Assert.AreEqual(scoreUI.currentScore, testPlayer.getScore());
+            //Debug.Log("Player = " + testPlayer.getScore() + "  scoreUI = " + scoreUI.currentScore);
+
+            testPlayer.ScorePoints(50);
+            Assert.AreEqual(scoreUI.currentScore, testPlayer.getScore());
+            //Debug.Log("Player = " + testPlayer.getScore() + "  scoreUI = " + scoreUI.currentScore);
+
+            testPlayer.ScorePoints(50);
+            Assert.AreEqual(scoreUI.currentScore, testPlayer.getScore());
+            //Debug.Log("Player = " + testPlayer.getScore() + "  scoreUI = " + scoreUI.currentScore);      
         }
     }
 }

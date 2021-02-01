@@ -8,27 +8,36 @@ public class PlayerShip : MonoBehaviour
     public Rigidbody2D rb;
 
     //variables used for ship movement
-    public float forwardThrust;
-    public float rotationForce;
-    public float screenTop;
-    public float screenBottom;
-    public float screenLeft;
-    public float screenRight;
-    private float forwardInput;
-    private float rotationInput;
+    private float forwardThrust = 3;
+    private float rotationForce = 145;
+    private float screenTop = 11;
+    private float screenBottom = -11;
+    private float screenLeft = (float) -18.5;
+    private float screenRight = (float) 18.5;
+    private float forwardInput = 0;
+    private float rotationInput = 0;
 
     //variabels used for laser emmision
     public GameObject laser;
     public Transform laserEmitter;
-    public float laserThrust;
+    public float laserThrust = 500;
     public GameObject soundManager;
 
     //scoring UI
-    private int score;
+    private int score = 0;
     private GameObject scoreUI;
 
     //Game Over
     private GameObject GameOverUI;
+
+    void Awake()
+    {
+        //get GameObjects
+        GameOverUI = GameObject.FindWithTag("GameOverUI");
+        soundManager = GameObject.FindWithTag("soundManager");
+        scoreUI = GameObject.FindWithTag("scoreDisplay1");
+        //rb = gameObject.AddComponent(typeof(Rigidbody2D)) as Rigidbody2D;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -36,14 +45,7 @@ public class PlayerShip : MonoBehaviour
         //hides mouse cursor and set appropriate game speed
         Cursor.visible = false;
         Time.timeScale = 1f;
-
-        //get GameObjects
-        GameOverUI = GameObject.FindWithTag("GameOverUI");
-        soundManager = GameObject.FindWithTag("soundManager");
-        scoreUI = GameObject.FindWithTag("scoreDisplay1");
-
         //Sets starting score
-        score = 0;
         scoreUI.SendMessage("updateScore", score);
     }
 
@@ -103,12 +105,13 @@ public class PlayerShip : MonoBehaviour
     //Handles players death
     void OnCollisionEnter2D()
     {
+        soundManager.SendMessage("stopThruster");
         GameOverUI.SendMessage("setFinalScore", score);
         GameOverUI.SendMessage( "playerDeathWatch", true);
         Destroy(gameObject);
     }
 
-    void ScorePoints(int addScore)
+    public void ScorePoints(int addScore)
     {
         score += addScore;
         scoreUI.SendMessage("updateScore", score);
