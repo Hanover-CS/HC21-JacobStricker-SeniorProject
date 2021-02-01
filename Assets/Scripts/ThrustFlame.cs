@@ -16,15 +16,18 @@ public class ThrustFlame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetButtonDown("joy1"))
+        if (Time.timeScale != 0)
         {
-            ps.Play();
-            soundManager.SendMessage("playThruster");
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetButtonDown("xBoxButtonA"))
+            {
+                ps.Play();
+                soundManager.SendMessage("playThruster");
+            }
+            if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow) || Input.GetButtonUp("xBoxButtonA"))
+            {
+                ps.Stop();
+                soundManager.SendMessage("stopThruster");
+            }
         }
-        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow) || Input.GetButtonUp("joy1"))
-        {
-            ps.Stop();
-            soundManager.SendMessage("stopThruster");
-        }   
     }
 }

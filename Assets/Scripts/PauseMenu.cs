@@ -12,7 +12,7 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if (Input.GetKeyDown(KeyCode.Escape) && !gameOverUI.activeSelf)
+       if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("xBoxButtonStart")) && !gameOverUI.activeSelf)
        {
            if (gamePaused)
            {

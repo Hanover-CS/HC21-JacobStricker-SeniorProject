@@ -25,11 +25,10 @@ public class PlayerShip : MonoBehaviour
 
     //scoring UI
     private int score;
-    public GameObject scoreUI;
+    private GameObject scoreUI;
 
     //Game Over
-    public GameObject GameOverUI;
-
+    private GameObject GameOverUI;
 
     // Start is called before the first frame update
     void Start()
@@ -38,14 +37,14 @@ public class PlayerShip : MonoBehaviour
         Cursor.visible = false;
         Time.timeScale = 1f;
 
-        //Sets starting score
-        score = 0;
-        scoreUI.SendMessage("updateScore", score);
-
         //get GameObjects
         GameOverUI = GameObject.FindWithTag("GameOverUI");
         soundManager = GameObject.FindWithTag("soundManager");
         scoreUI = GameObject.FindWithTag("scoreDisplay1");
+
+        //Sets starting score
+        score = 0;
+        scoreUI.SendMessage("updateScore", score);
     }
 
     // Update is called once per frame
@@ -53,7 +52,7 @@ public class PlayerShip : MonoBehaviour
     {
         //forward and rotational movement
        forwardInput = 0;
-       if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetButton("joy1"))
+       if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetButton("xBoxButtonA"))
        {
            forwardInput = 1;
        }
@@ -87,7 +86,7 @@ public class PlayerShip : MonoBehaviour
         transform.position = newPos;
 
         //Fire laser
-        if (Input.GetButtonDown("fireLaser"))
+        if (Input.GetButtonDown("fireLaser") && (Time.timeScale != 0))
         {
             GameObject newLaser = Instantiate(laser, laserEmitter.position, laserEmitter.rotation);
             newLaser.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.up * laserThrust);
@@ -121,7 +120,7 @@ public class PlayerShip : MonoBehaviour
     }
 
     //function used for testing
-    int getScore()
+    public int getScore()
     {
         return score;
     }
