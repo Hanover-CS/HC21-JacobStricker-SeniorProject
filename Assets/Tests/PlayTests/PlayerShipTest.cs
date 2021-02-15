@@ -9,7 +9,7 @@ namespace Tests
     public class PlayerShipTest
     {
         [UnityTest]
-        public IEnumerator testPlayerScoreAccumulation()
+        public IEnumerator testPlayerShipScoreAndDeath()
         {
             //set up
             GameObject gameObjectScoreUI = new GameObject();
@@ -40,7 +40,9 @@ namespace Tests
 
             testPlayer.ScorePoints(50);
             Assert.AreEqual(scoreUI.currentScore, testPlayer.getScore());
-            //Debug.Log("Player = " + testPlayer.getScore() + "  scoreUI = " + scoreUI.currentScore);      
+            //Debug.Log("Player = " + testPlayer.getScore() + "  scoreUI = " + scoreUI.currentScore);     
+
+            //Assert.IsNotNull(gameObjectPlayer);
         }
     }
 }

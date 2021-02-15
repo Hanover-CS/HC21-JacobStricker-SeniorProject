@@ -11,6 +11,8 @@ TagManager:
   - scoreDisplay1
   - Music
   - PauseUI
+  - OptionsMenu
+  - MainMenu
   layers:
   - Default
   - TransparentFX

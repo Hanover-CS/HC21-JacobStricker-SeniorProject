@@ -14,7 +14,9 @@ public class musicVolume : MonoBehaviour
     {
         //Prevents music from stopping when changing scenes
         menuMusic = GameObject.FindWithTag("Music");
-        DontDestroyOnLoad(menuMusic);
+        //DontDestroyOnLoad(menuMusic);
+        //uncomment line above to have music persist into gameplay
+        //this causes multiple music tracks playing at once when reeturning to the menu
     }
 
     // Start is called before the first frame update
